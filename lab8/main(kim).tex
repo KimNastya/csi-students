@@ -1,0 +1,148 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc} %поддержка кириллицы
+\usepackage[utf8]{inputenc} %кодировка текста: koi8-r или utf8 в UNIX, cp1251 в Windows
+\usepackage[english,russian]{babel} 
+\usepackage[left=2cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} 
+\usepackage{tabularx} 
+\usepackage{graphicx} 
+\usepackage{amsmath} %отображение математической нотации
+\usepackage{float}
+\usepackage{caption, subcaption} %подписи
+%\usepackage{array}
+%\usepackage{amsmath,booktabs}
+%\usepackage{tabu}
+\usepackage{indentfirst}%отступ вначале параграфа
+%\usepackage{pscyr} %???
+%\usepackage{natbib}
+%\usepackage{ragged2e} %для таблиц
+ 
+\captionsetup[table]{labelsep = endash, singlelinecheck=false}
+\captionsetup[figure]{name = Рисунок, labelformat=simple, labelsep = endash}
+
+\begin{document}
+
+\include{title}
+
+\paragraph{Цель работы:}Ознакомление с экспериментальными методами построения областей устойчивости линейных динамических систем и изучение влияния на устойчивость системы её параметров.%*-без нумерации
+\paragraph{Вариант задания.} Задана линейная система третьего порядка, структурная схема которой представлена на рисунке 1. Система имеет три параметра ~--- постоянные времени $T_1$,$T_2$ и коэффициент передачи $K$. При исследовании системы постоянную времени $T_1$ будем считать фиксированной и равной 2,75, а область устойчивости будем определять на плоскости двух параметров $K$ и $T_2$. Причем диапазон изменения постоянной времени $T_2$ ~--- от 0,1 до 5 с. Тип устойчивости системы будет определять по виду переходного процесса при нулевом входном воздействии $g(t)=0$ и ненулевом начальном значении выходной переменной $y(0)=1$.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{scheme8lab/scheme1.png}
+	\caption{Структурная схема моделируемой линейной системы третьего порядка}
+\end{figure} 
+
+\newpage
+\begin{center}
+    \section{Построение границы устойчивости на плоскости двух параметров $K$ и $T_2$ методом математического моделирования}
+\end{center}
+\par На рисунке 2 представлена схема моделирования для системы с заданными параметрами.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{scheme8lab/scheme.eps}
+	\caption{Структурная схема моделируемой системы}
+\end{figure}
+ 
+Будем менять значение $T_2$ и подбирать коэффициент передачи $K$ таким образом, чтобы система находилась на границе устойчивости. Данные, необходимые для построения границы устойчивости приведены в таблице 1, графическое изображение границы устойчивости ~--- на рисунке 3.
+\begin{table}[h!]
+	\caption{Данные, необходимые для построения границы устойчивости системы}
+	\renewcommand{\arraystretch}{1.8} %строки
+	%\renewcommand{\tabcolsep}{1cm} %столбцы
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline $T_2$ & 0,1 & 0,2 & 0,3 & 0,4 & 0,5 & 0,75 & 1 & 2 & 3 & 5\\
+			\hline $K$ & 10,36 & 5,36 & 3,69 & 2,86 & 2,36 & 1,69 & 1,36 & 0,86 & 0,69 & 0,56\\
+			\hline
+		\end{tabular}	
+	\end{center}	
+\end{table} 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{scheme8lab/plot0.eps}
+	\caption{Граница устойчивости на плоскости двух параметров $K, T_2$, построенная методом математического моделирования}
+\end{figure}
+
+Графики переходных процессов для устойчивой системы, неустойчивой и системы, находящейся на границе устойчивости представлены соответственно на 4, 5 и 6 рисунках.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{scheme8lab/plot1.eps}
+	\caption{Система устойчива}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{scheme8lab/plot2.eps}
+	\caption{Неустойчивая система}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{scheme8lab/plot3.eps}
+	\caption{Система, находящаяся на границе устойчивости}
+\end{figure}
+
+\newpage
+\begin{center}
+    \section{Теоретический расчет границы устойчивости с использованием критерия Гурвица}
+\end{center}
+ 
+ 
+Передаточная функция замкнутой системы выглядит следующим образом:
+\begin{equation} W(s) = \frac{\Phi(s)}{1 + \Phi(s)}, \end{equation}
+где $\Phi(s)$ - передаточная функция разомкнутой системы.
+\begin{equation} 
+\Phi(s) = K\cdot\frac{1}{T_1s + 1}\cdot\frac{1}{T_2s + 1}\cdot\frac{1}{s} = \frac{K}{T_1T_2s^3 + (T_1 + T_2)s^2 +s},
+\end{equation}
+\parТогда \begin{equation} W(s) = \frac{K}{T_1T_2s^3 + (T_1 + T_2)s^2 +s + K}. \end{equation}
+\par
+На основании характеристического уравнения, построенного по передаточной функции замкнутой системы, составим матрицу Гурвица для определения границы устойчивости:
+\[
+\begin{vmatrix}
+$$T_1 + T_2$$ & $$K$$ & 0\\
+$$T_1T_2$$ & 1 & 0\\
+0 & $$T_1 + T_2$$ & $$K$$
+\end{vmatrix}
+\]
+\par
+По критерию Гурвица для устойчивости системы необходимо, чтобы главные миноры матрицы были положительны. 
+\begin{equation}
+    \begin{cases}
+        $$T_1 + T_2 > 0$$\\
+        $$T_1 + T_2 - KT_1T_2 > 0$$\\
+        $$K(T_1 + T_2) - K^2T_1T_2 > 0$$
+    \end{cases}
+\end{equation}
+\par
+Если минор $n - 1$ порядка равен 0, то система будет находится на колебательной границе устойчивости. По условию $T_1$ и $T_2$ больше 0, тогда для определения границы устойчивости воспользуемся выражением:
+\begin{equation}
+    K = \frac{T_1 + T_2}{T_1T_2} =  \frac{1}{T_1} + \frac{1}{T_2}
+\end{equation}
+    
+Используя выражение (5), найдём $K$. Полученные значения запишем в таблицу 2.
+\begin{table}[h!]
+	\caption{Данные, необходимые для построения теоретической границы устойчивости системы}
+	\renewcommand{\arraystretch}{1.8} %строки
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline $T_2$ & 0,1 & 0,2 & 0,3 & 0,4 & 0,5 & 0,75 & 1 & 2 & 3 & 5\\
+			\hline $K$ & 10,36 & 5,36 & 3,69 & 2,86 & 2,36 & 1,69 & 1,36 & 0,86 & 0,69 & 0,56\\
+			\hline
+		\end{tabular}	
+	\end{center}
+\end{table}  
+ 
+По данным из таблицы 2 построим графическое изображение теоретической границы устойчивости (рисунок 7):
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{scheme8lab/plot4.eps}
+	\caption{Теоретическая граница устойчивости на плоскости двух параметров $K, T_2$}
+\end{figure}
+
+\newpage
+\section*{Вывод}
+\par
+В ходе лабораторной работы был рассмотрен метод управления устойчивостью системы путём изменения отдельных её параметров, таких как  $T_2$ и $K$ при фиксированном значении $T_1$.
+\par
+На основе критерия Гурвица были получены значения для построения графика границы устойчивости аналитическим методом. Аналитически полученные результаты совпадают с полученными в результате математического моделирования.
+\par
+Следовательно, можно сделать вывод, что устойчивость системы определяется не характером возмущения, а структурой самой системы.
+
+\end{document}
