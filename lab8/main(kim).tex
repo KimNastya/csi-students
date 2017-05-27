@@ -1,27 +1,41 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[a4paper,12pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+%\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[english,russian]{babel}%используем русский и английский языки с переносами
+\usepackage{biblatex}
+\bibliography{refs}
+\usepackage{amssymb,amsfonts,mathtext,enumerate,float} %подключаем нужные пакеты расширений
+\usepackage{textcomp}
+\usepackage{adjustbox}
+\usepackage{graphicx} %хотим вставлять в диплом рисунки?
+%\graphicspath{{images/}}%путь к рисункам
+\makeatletter
+\makeatother
+\usepackage{sagetex}
+\usepackage{geometry} % Меняем поля страницы
+\geometry{left=2cm}% левое поле
+\geometry{right=1.5cm}% правое поле
+\geometry{top=1cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
 
-\usepackage[T2A]{fontenc} %поддержка кириллицы
-\usepackage[utf8]{inputenc} %кодировка текста: koi8-r или utf8 в UNIX, cp1251 в Windows
-\usepackage[english,russian]{babel} 
-\usepackage[left=2cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} 
-\usepackage{tabularx} 
-\usepackage{graphicx} 
+
+
+
+%\usepackage{tabularx} 
+
+\usepackage{epstopdf}
 \usepackage{amsmath} %отображение математической нотации
-\usepackage{float}
-\usepackage{caption, subcaption} %подписи
-%\usepackage{array}
-%\usepackage{amsmath,booktabs}
-%\usepackage{tabu}
+\usepackage{caption, subcaption} %подписи}
 \usepackage{indentfirst}%отступ вначале параграфа
-%\usepackage{pscyr} %???
+\usepackage{pscyr}
 %\usepackage{natbib}
 %\usepackage{ragged2e} %для таблиц
- 
+
 \captionsetup[table]{labelsep = endash, singlelinecheck=false}
 \captionsetup[figure]{name = Рисунок, labelformat=simple, labelsep = endash}
 
 \begin{document}
-
 \include{title}
 
 \paragraph{Цель работы:}Ознакомление с экспериментальными методами построения областей устойчивости линейных динамических систем и изучение влияния на устойчивость системы её параметров.%*-без нумерации
@@ -39,7 +53,7 @@
 \par На рисунке 2 представлена схема моделирования для системы с заданными параметрами.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/scheme.eps}
+	\includegraphics[width=1\linewidth]{scheme/scheme.eps}
 	\caption{Структурная схема моделируемой системы}
 \end{figure}
  
@@ -58,24 +72,24 @@
 \end{table} 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot0.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot0.eps}
 	\caption{Граница устойчивости на плоскости двух параметров $K, T_2$, построенная методом математического моделирования}
 \end{figure}
 
 Графики переходных процессов для устойчивой системы, неустойчивой и системы, находящейся на границе устойчивости представлены соответственно на 4, 5 и 6 рисунках.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot1.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot1.eps}
 	\caption{Система устойчива}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot2.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot2.eps}
 	\caption{Неустойчивая система}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot3.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot3.eps}
 	\caption{Система, находящаяся на границе устойчивости}
 \end{figure}
 
@@ -132,17 +146,13 @@ $$T_1T_2$$ & 1 & 0\\
 По данным из таблицы 2 построим графическое изображение теоретической границы устойчивости (рисунок 7):
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{scheme/plot4.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot4.eps}
 	\caption{Теоретическая граница устойчивости на плоскости двух параметров $K, T_2$}
 \end{figure}
 
 \newpage
 \section*{Вывод}
 \par
-В ходе лабораторной работы был рассмотрен метод управления устойчивостью системы путём изменения отдельных её параметров, таких как  $T_2$ и $K$ при фиксированном значении $T_1$.
-\par
-На основе критерия Гурвица были получены значения для построения графика границы устойчивости аналитическим методом. Аналитически полученные результаты совпадают с полученными в результате математического моделирования.
-\par
-Следовательно, можно сделать вывод, что устойчивость системы определяется не характером возмущения, а структурой самой системы.
+В ходе лабораторной работы был рассмотрен метод управления устойчивостью системы путём изменения отдельных её параметров, таких как  $T_2$ и $K$ при фиксированном значении $T_1$. На основе критерия Гурвица были получены значения для построения графика границы устойчивости аналитическим методом. Аналитически полученные результаты совпадают с полученными в результате математического моделирования. Следовательно, можно сделать вывод, что устойчивость системы определяется не характером возмущения, а структурой самой системы.
 
 \end{document}
