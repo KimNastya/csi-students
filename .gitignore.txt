@@ -1,0 +1,10 @@
+*.aux
+*.bcf
+*.log
+
+*.sage
+*.run
+*.synctex
+
+./**/scheme/*.pdf
+./**/scheme/*.fig

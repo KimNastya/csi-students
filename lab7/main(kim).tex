@@ -1,20 +1,34 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[a4paper,12pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+%\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[english,russian]{babel}%используем русский и английский языки с переносами
+\usepackage{biblatex}
+\bibliography{refs}
+\usepackage{amssymb,amsfonts,mathtext,enumerate,float} %подключаем нужные пакеты расширений
+\usepackage{textcomp}
+\usepackage{adjustbox}
+\usepackage{graphicx} %хотим вставлять в диплом рисунки?
+%\graphicspath{{images/}}%путь к рисункам
+\makeatletter
+\makeatother
+\usepackage{sagetex}
+\usepackage{geometry} % Меняем поля страницы
+\geometry{left=2cm}% левое поле
+\geometry{right=1.5cm}% правое поле
+\geometry{top=1cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
 
-\usepackage[T2A]{fontenc} %поддержка кириллицы
-\usepackage[utf8]{inputenc} %кодировка текста: koi8-r или utf8 в UNIX, cp1251 в Windows
-\usepackage[english,russian]{babel} 
-\usepackage[left=2cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} 
-\usepackage{tabularx} 
-\usepackage{graphicx}
+
+
+
+%\usepackage{tabularx} 
+
 \usepackage{epstopdf}
 \usepackage{amsmath} %отображение математической нотации
-\usepackage{float}
-\usepackage{caption, subcaption} %подписи
-%\usepackage{array}
-%\usepackage{amsmath,booktabs}
-%\usepackage{tabu}
+\usepackage{caption, subcaption} %подписи}
 \usepackage{indentfirst}%отступ вначале параграфа
-%\usepackage{pscyr} %???
+\usepackage{pscyr}
 %\usepackage{natbib}
 %\usepackage{ragged2e} %для таблиц
  
@@ -45,7 +59,7 @@
 \par Задана замкнутая система, структурная схема которой представлена на рисунке 1, где $H(s) = k$, $W(s)=\displaystyle{\frac{8}{0,5s^2+2s + 8}}$.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{scheme/scheme0.eps}
+	\includegraphics[width=0.5\linewidth]{scheme/scheme0.eps}
 	\caption{Структурная схема моделируемой системы}
 \end{figure}
 
@@ -58,29 +72,29 @@
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot1.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot1.eps}
 	\caption{Переходные характеристики системы для стационарного режима работы}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot2.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot2.eps}
 	\caption{Переходные характеристики для ошибки}
 \end{figure}
-
-С помощью расчета проверим получившееся на графике значения установившейся ошибки:
-\begin{equation}
-e=A/(1+k)
-\end{equation}
 \newpage
-\\при $k=1$: $\varepsilon = \displaystyle{\frac{A}{1+k}}={\frac{2}{2}}=1;$\\
-\\при $k=5$: $\varepsilon = \displaystyle{\frac{2}{6}}=0,33;$\\
-\\при $k=10$: $\varepsilon = \displaystyle{\frac{2}{11}}=0,18;$\\
+
+\par С помощью расчета проверим получившееся на графике значения установившейся ошибки:
+\begin{equation}
+	e = \frac{A}{(1+k)}
+\end{equation}
+при $k=1$: $\varepsilon = \displaystyle{\frac{A}{1+k}}={\frac{2}{2}}=1;$\\
+при $k=5$: $\varepsilon = \displaystyle{\frac{2}{6}}=0,33;$\\
+при $k=10$: $\varepsilon = \displaystyle{\frac{2}{11}}=0,18;$\\
 
 \subsection{Исследование режима движения с постоянной скоростью: \\$g(t)=Vt$} 
 На рисунке 5 представлена переходная характеристика системы при входном воздействии $g=t$.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot3.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot3.eps}
 	\caption{Переходные характеристики системы для движения с постоянной скоростью}
 \end{figure}
 Для статической системы при линейно нарастающем входном воздействии $g(t)=Vt$ имеем:
@@ -107,12 +121,12 @@ e=A/(1+k)
 \end{equation}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot5.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot5.eps}
 	\caption{Переходные характеристики системы для стационарного режима работы}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot6.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot6.eps}
 	\caption{Переходные характеристики для ошибки}
 \end{figure}
 
@@ -120,7 +134,7 @@ e=A/(1+k)
 На рисунке 9 представлена переходная характеристика системы при входном воздействии $g=t$, на рисунке 10  - переходные характеристики для ошибки.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot7.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot7.eps}
 	\caption{Переходные характеристики системы для движения с постоянной скоростью}
 \end{figure}
 При линейно нарастающем воздействии $g(t)=Vt$ предельное значение установившейся ошибки будет равно:
@@ -132,7 +146,7 @@ e=A/(1+k)
 при $k=10$: $\varepsilon = \displaystyle{\frac{1}{10} = 0.1}$
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot8.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot8.eps}
 	\caption{Переходные характеристики для ошибки}
 \end{figure}
 
@@ -140,12 +154,12 @@ e=A/(1+k)
 На рисунке 11 представлена переходная характеристика системы при входном воздействии $g=0.3t^2$ и ошибка на рисунке 12.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot9.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot9.eps}
 	\caption{Переходные характеристики системы для движения с постоянным ускорением}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{scheme/plot10.eps}
+	\includegraphics[width=1\linewidth]{scheme/plot10.eps}
 	\caption{Переходные характеристики для ошибки при входном воздействии $g=0.3t^2$}
 \end{figure}
 \par Вывод: в СУ с астатизмом первого порядка ошибка бесконечна.
@@ -167,12 +181,12 @@ e = {\frac{g - W(s)f_1 - \displaystyle{\frac{1}{s}}W(s)f_2}{1 + \displaystyle{\f
 Положим, что $f_2=0$, тогда предельное значение ошибки при заданных параметрах должно быть равно 0. Если положить  $f_1=0$, тогда предельное значение ошибки будет равно $-f_2$, то есть 0.5.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{scheme/plot11y.eps}
+    \includegraphics[width=1\linewidth]{scheme/plot11y.eps}
     \caption{Переходные характеристики системы при влиянии внешних возмущений}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{scheme/plot12e.eps}
+    \includegraphics[width=1\linewidth]{scheme/plot12e.eps}
     \caption{Переходные характеристики для ошибки}
 \end{figure}
 
@@ -184,12 +198,12 @@ e = {\frac{g - W(s)f_1 - \displaystyle{\frac{1}{s}}W(s)f_2}{1 + \displaystyle{\f
  В ходе моделирования заданной системы (рисунок 15) был получен график переходного процесса, представленный на рисунке 16. Из него видно, что предельное значение ошибки стремится к $\infty$. Схема моделирования системы представленна на рисунке 13.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{scheme/scheme5.eps}
+    \includegraphics[width=1\linewidth]{scheme/scheme5.eps}
     \caption{Структурная схема системы при произвольном входном воздействии}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{scheme/plot13y.eps}
+    \includegraphics[width=1\linewidth]{scheme/plot13y.eps}
     \caption{Переходной процесс в замкнутой системе при произвольном входном воздействии}
 \end{figure}
 Получим приближенное аналитическое выражение для установившейся ошибки слежения путём разложения в ряд Тейлора передаточную функцию замкнутой системы по ошибке слежения.
@@ -215,14 +229,16 @@ e_y(t) = {0.5(t + 5) + 0.0625 * 1 + 0} = 0.5t + 2.5625.
 Убедимся, что графики расчетной и экспериментально определённой установившейся ошибки слежения совпадают для этого построим их на одном графике, представленном на рисунке 17.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{scheme/plot14e.eps}
+    \includegraphics[width=1\linewidth]{scheme/plot14e.eps}
     \caption{Графики ошибок}
 \end{figure}
 
 \newpage
-\section*{Вывод}
-В ходе лабораторной работы были исследованы системы с разным порядком астатизма, при влиянии внешних возмущений и при произвольном входном воздействии. Были построены переходные характеристики для всех случаев и найдены значения установившихся ошибок. Данные исследования позволяют сделать вывод о том что, установившееся значение ошибки можно изменить путём увеличения или уменьшения общего коэффициента усиления разомкнутой системы, а также путём снижения или повышения порядка астатизма.\par
-Кроме того было показано, что порядок астатизма системы по задающему воздействию, в общем случае, не соответствует порядку астатизма по возмущению.\par
-Так же было получено приближенное аналитическое выражение для установившейся ошибки слежения системы при произвольном входном воздействии.
+\begin{center}
+\section{Вывод}
+\end{center}
+\par
+В ходе лабораторной работы были исследованы системы с разным порядком астатизма, при влиянии внешних возмущений и при произвольном входном воздействии. Были построены переходные характеристики для всех случаев и найдены значения установившихся ошибок. Данные исследования позволяют сделать вывод о том что, установившееся значение ошибки можно изменить путём увеличения или уменьшения общего коэффициента усиления разомкнутой системы, а также путём снижения или повышения порядка астатизма.Кроме того было показано, что порядок астатизма системы по задающему воздействию, в общем случае, не соответствует порядку астатизма по возмущению.Так же было получено приближенное аналитическое выражение для установившейся ошибки слежения системы при произвольном входном воздействии.
+
 
 \end{document}
