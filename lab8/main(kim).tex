@@ -1,5 +1,4 @@
 \documentclass[a4paper,12pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
-%\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[english,russian]{babel}%используем русский и английский языки с переносами
@@ -9,7 +8,6 @@
 \usepackage{textcomp}
 \usepackage{adjustbox}
 \usepackage{graphicx} %хотим вставлять в диплом рисунки?
-%\graphicspath{{images/}}%путь к рисункам
 \makeatletter
 \makeatother
 \usepackage{sagetex}
@@ -18,22 +16,13 @@
 \geometry{right=1.5cm}% правое поле
 \geometry{top=1cm}% верхнее поле
 \geometry{bottom=2cm}% нижнее поле
-
-
-
-
-%\usepackage{tabularx} 
-
-\usepackage{epstopdf}
 \usepackage{amsmath} %отображение математической нотации
-\usepackage{caption, subcaption} %подписи}
-\usepackage{indentfirst}%отступ вначале параграфа
-\usepackage{pscyr}
-%\usepackage{natbib}
-%\usepackage{ragged2e} %для таблиц
 
+\usepackage{caption, subcaption} %подписи
+\usepackage{tabularx} 
+\usepackage{threeparttable}
 \captionsetup[table]{labelsep = endash, singlelinecheck=false}
-\captionsetup[figure]{name = Рисунок, labelformat=simple, labelsep = endash}
+
 
 \begin{document}
 \include{title}
@@ -59,16 +48,16 @@
  
 Будем менять значение $T_2$ и подбирать коэффициент передачи $K$ таким образом, чтобы система находилась на границе устойчивости. Данные, необходимые для построения границы устойчивости приведены в таблице 1, графическое изображение границы устойчивости ~--- на рисунке 3.
 \begin{table}[h!]
-	\caption{Данные необходимые для построения границы устойчивости системы}
-	\renewcommand{\arraystretch}{1.8} %строки
-	%\renewcommand{\tabcolsep}{1cm} %столбцы
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-			\hline $T_2$ & 0,1 & 0,2 & 0,3 & 0,4 & 0,5 & 0,75 & 1 & 2 & 3 & 5\\
-			\hline $K$ & 10,36 & 5,36 & 3,69 & 2,86 & 2,36 & 1,69 & 1,36 & 0,86 & 0,69 & 0,56\\
-			\hline
-		\end{tabular}	
-	\end{center}	
+		\renewcommand{\arraystretch}{1.8} %строки
+		\centering
+		\begin{threeparttable}
+		\caption{Данные необходимые для построения границы устойчивости системы}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+				\hline $T_2$ & 0,1 & 0,2 & 0,3 & 0,4 & 0,5 & 0,75 & 1 & 2 & 3 & 5\\
+				\hline $K$ & 10,36 & 5,36 & 3,69 & 2,86 & 2,36 & 1,69 & 1,36 & 0,86 & 0,69 & 0,56\\
+				\hline
+			\end{tabular}	
+		\end{threeparttable}
 \end{table} 
 \begin{figure}[h!]
 	\centering
@@ -105,7 +94,8 @@
 \begin{equation} 
 \Phi(s) = K\cdot\frac{1}{T_1s + 1}\cdot\frac{1}{T_2s + 1}\cdot\frac{1}{s} = \frac{K}{T_1T_2s^3 + (T_1 + T_2)s^2 +s},
 \end{equation}
-\parТогда \begin{equation} W(s) = \frac{K}{T_1T_2s^3 + (T_1 + T_2)s^2 +s + K}. \end{equation}
+\par
+Тогда \begin{equation} W(s) = \frac{K}{T_1T_2s^3 + (T_1 + T_2)s^2 +s + K}. \end{equation}
 \par
 На основании характеристического уравнения, построенного по передаточной функции замкнутой системы, составим матрицу Гурвица для определения границы устойчивости:
 \[
@@ -132,15 +122,16 @@ $$T_1T_2$$ & 1 & 0\\
     
 Используя выражение (5), найдём $K$. Полученные значения запишем в таблицу 2.
 \begin{table}[h!]
+    \renewcommand{\arraystretch}{1.8} %строки
+	\centering
+	\begin{threeparttable}
 	\caption{Данные необходимые для построения теоретической границы устойчивости системы}
-	\renewcommand{\arraystretch}{1.8} %строки
-	\begin{center}
 		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 			\hline $T_2$ & 0,1 & 0,2 & 0,3 & 0,4 & 0,5 & 0,75 & 1 & 2 & 3 & 5\\
 			\hline $K$ & 10,36 & 5,36 & 3,69 & 2,86 & 2,36 & 1,69 & 1,36 & 0,86 & 0,69 & 0,56\\
 			\hline
 		\end{tabular}	
-	\end{center}
+	\end{threeparttable}
 \end{table}  
  
 По данным из таблицы 2 построим графическое изображение теоретической границы устойчивости (рисунок 7):
