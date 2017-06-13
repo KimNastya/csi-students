@@ -1,0 +1,47 @@
+\documentclass[fleqn, a4paper, 12pt, russian]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1, T2A]{fontenc}
+\usepackage[english, main = russian]{babel}
+\usepackage{pscyr}
+\usepackage[top=2cm, left=2cm, right=2cm, left=2cm]{geometry}
+\usepackage{amsmath} %Для работы с матрицами
+
+\newcommand\tline[2]{$\underset{\text{#1}}{\text{\underline{\hspace{#2}}}}$}
+\newcommand\nameLine[3]{$\underset{\text{#1}}{\text{\underline{\text{#2}\hspace{#3}}}}$}
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	{\fontsize{14pt}{5cm}\selectfont \bfseries Министерство образования и науки Российской Федерации} \\ \vspace{0.5cm}
+	{\fontsize{6.8pt}{5cm}\selectfont ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ} \\ 
+	\vspace{0.5cm}
+	{\fontsize{13pt}{5cm}\selectfont \bfseries “САНКТ-ПЕТЕРБУРГСКИЙ НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ,} \\ \vspace{0.1cm}
+	{\fontsize{13pt}{5cm}\selectfont \bfseries МЕХАНИКИ И ОПТИКИ”} \\ \vspace{1cm}
+	
+	{\fontsize{12pt}{5cm}\selectfont Факультет\nameLine{}{\hspace{2cm}компьютерных технологий и управления}{3.5cm}}
+	{\fontsize{12pt}{5cm}\selectfont Направление(специальность)\nameLine{}{\hspace{1cm}управление в технических системах}{1.9cm}}
+	{\fontsize{12pt}{5cm}\selectfont Квалификация(степень)\nameLine{}{\hspace{4.5cm}бакалавр}{4.5cm}}
+	{\fontsize{12pt}{5cm}\selectfont Специализация\nameLine{}{\hspace{1cm}27.03.04 Управление в технических системах}{2.8cm}}
+	{\fontsize{12pt}{5cm}\selectfont Кафедра\underline{\hspace{0.5cm}систем управления и информатики\hspace{1cm}}Группа\underline{\hspace{0.5cm}P3340\hspace{2.58cm}}} \\ \vspace{1.5cm}
+
+	{\fontsize{28pt}{5cm}\selectfont \bfseries ПОЯСНИТЕЛЬНАЯ ЗАПИСКА} \\ \vspace{0.5cm}%%
+	{\fontsize{24pt}{5cm}\selectfont к курсовому проекту} \\ \vspace{1cm}
+	{\fontsize{16pt}{5cm}\selectfont \bfseries \underline{Синтез регулятора методом построения желаемой ЛАЧХ}} \\
+	\vspace{1.5cm}
+
+	\flushleft
+
+	{\fontsize{12pt}{5cm}\selectfont Автор курсового проекта \hspace{1cm} \nameLine{(фамилия, и.о.)}{\hspace{0.25cm}Алякин С.П.}{6cm} (подпись)} \\
+	\vspace{0.2cm}
+
+	{\fontsize{12pt}{5cm}\selectfont Руководитель \hspace{3.12cm} \nameLine{(фамилия, и.о.)}{\hspace{0.25cm}Григорьев В.В.}{5.63cm} (подпись)} \\
+	\vspace{2cm}
+	\fontsize{12pt}{0cm}\selectfont
+	"\underline{\hspace{0.7cm}}"\hspace{0.2cm}\underline{\hspace{3cm}}\hspace{0.2cm}20\underline{ 17 }г. \hspace{2.5cm} Санкт-Петербург, \hspace{2.5cm} 20\underline{ 17 }г. \\ \vspace{2.5cm}
+
+	Курсовой проект выполнен с оценкой \hspace{1cm} \underline{\hspace{8cm}} \\ \vspace{1.2cm}
+	Дата защиты "\underline{\hspace{0.7cm}}"\hspace{0.2cm}\underline{\hspace{2cm}}\hspace{0.2cm}20\underline{ 17 }г.
+		
+\end{titlepage}
+\end{document}
